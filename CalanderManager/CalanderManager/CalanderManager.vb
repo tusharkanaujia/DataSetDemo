@@ -31,10 +31,10 @@ Module CalanderManager
         adpCalander.Fill(dsCalander, "Holiday")
         Dim counter As Int32 = 0
 
-        For Each holiday As DataRow In dsCalander.Tables(1).Rows
-            For Each calander As DataRow In dsCalander.Tables(0).Rows
+        For Each holiday As DataRow In dsCalander.Tables("Holiday").Rows
+            For Each calander As DataRow In dsCalander.Tables("Calander").Rows
                 If calander.ItemArray(0) = holiday.ItemArray(0) Then
-                    dsCalander.Tables(0).Rows(counter)(2) = True
+                    dsCalander.Tables("Calander").Rows(counter)(2) = True
                 End If
                 counter = counter + 1
             Next
